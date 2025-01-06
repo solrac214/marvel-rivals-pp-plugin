@@ -23,7 +23,7 @@
 		"AssistTemplate": {
 			"filename": "assist.png",
 			"threshold": 0.80,
-			"debug": true
+			"debug": false
 		}
 	},
 	"regions": {
