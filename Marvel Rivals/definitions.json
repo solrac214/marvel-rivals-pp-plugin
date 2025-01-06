@@ -1,0 +1,101 @@
+{
+	"process_names": ["Marvel Rivals"],
+	"description": "Marvel Rivals module by Pup Axl",
+	"aspect_ratios": {
+        	"0": {
+                	"id" : "16:9",
+                	"sample_w": 1920,
+                	"sample_h": 1080
+		}
+
+	},
+	"templates": {
+		"EliminationTemplate": {
+			"filename": "elim.png", 
+			"threshold": 0.50,
+			"debug": false
+		},
+		"PastLivesTemplate": {
+			"filename": "past_lives.png",
+			"threshold": 0.50,
+			"debug": false
+		},
+		"AssistTemplate": {
+			"filename": "assist.png",
+			"threshold": 0.80,
+			"debug": true
+		}
+	},
+	"regions": {
+		"PastLivesRegion": {
+			"1920x1080": {
+				"x": 207,
+                		"y": 65,
+                		"w": 173,
+                		"h": 59
+            		}
+		},
+		"ElimRegion": {
+			"1920x1080": {
+				"x": 1180,
+				"y": 407,
+				"w": 27,
+				"h": 31
+			}
+		},
+		"FullScreen": {
+			"1920x1080": {
+				"x": 0,
+				"y": 0,
+				"w": 1920,
+				"h": 1080
+			}
+		}
+	},
+	"events": {
+		"Elimination": {
+			"additive": true,
+			"duration": 1.0,
+			"match": {
+				"template": "EliminationTemplate",
+				"region": "ElimRegion"
+			}
+		},
+		"KillCam": {
+			"additive": true,
+			"duration": 1.0,
+			"match": {
+				"template": "PastLivesTemplate",
+				"region": "PastLivesRegion"
+			}
+		},
+		"Assist": {
+			"additive": true,
+			"duration": 1.0,
+			"match": {
+				"template": "AssistTemplate",
+				"region": "ElimRegion"
+			}
+		}
+	},
+	"default_config": {
+		"aspect_ratio_index": 0,
+		"decay": 60,
+		"score_cap": 10,
+		"events": {
+			"Elimination": {
+				"points": 10
+			},
+			"Assist": {
+				"points": 10
+			},
+			"KillCam": {
+				"points": -999,
+				"hotkey": "",
+				"shock_cooldown": 10,
+				"shock_duration": 3,
+				"shock_intensity": 100
+			}	
+		}
+	}
+}
